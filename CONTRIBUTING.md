@@ -3,11 +3,12 @@
 **Table of Contents**
 
 - [Contributing to cgm-remote-monitor](#contributing-to-cgm-remote-monitor)
-  - [Design](#design)
+  - [Design & new features](#design--new-features)
   - [Develop on `dev`](#develop-on-dev)
   - [Style Guide](#style-guide)
   - [Create a prototype](#create-a-prototype)
   - [Submit a pull request](#submit-a-pull-request)
+  - [Bug fixing](#bug-fixing)
   - [Comments and issues](#comments-and-issues)
   - [Co-ordination](#co-ordination)
   - [Other Dev Tips](#other-dev-tips)
@@ -52,6 +53,10 @@ Note Nighscout has a plugin architecture for adding new features. We expect most
 We develop on the `dev` branch. All new pull requests should be targeted to `dev`. The `master` branch is only used for distributing the latest version of the tested sources.
 
 You can get the dev branch checked out using `git checkout dev`.
+
+Once checked out, install the dependencies using `npm install`, then copy the included `my.env.template`file to `my.env` and edit the file to include your settings (like the Mongo URL). Leave the `NODE_ENV=development` line intact. Once set, run the site using `npm run dev`. This will start Nigthscout in the development mode, with different code packaging rules and automatic restarting of the server using nodemon, when you save changed files on disk. The client also hot-reloads new code in, but it's recommended to reload the the website after changes due to the way the plugin sandbox works.
+
+If you want to additionaly test the site in production mode, create a file called `my.prod.env` that's a copy of the dev file but with `NODE_ENV=production` and start the site using `npm run prod`.
 
 ## Style Guide
 
@@ -162,6 +167,7 @@ Also if you can't code, it's possible to contribute by improving the documentati
 [@tynbendad]: https://github.com/tynbendad
 [@unsoluble]: https://github.com/unsoluble
 [@viderehh]: https://github.com/viderehh
+[@OpossumGit]: https://github.com/OpossumGit
 
 | Contribution area                     | List of contributors |
 | ------------------------------------- | ---------------------------------- |
@@ -227,7 +233,7 @@ Languages with less than 90% coverage will be removed in a future Nightscout ver
 | Suomi (`fi`)|[@sulkaharo] |OK|
 | Français (`fr`)|Please volunteer|OK|
 | עברית (`he`)|Please volunteer|OK|
-| Hrvatski (`hr`)|Please volunteer|Needs attention: 47.8%|
+| Hrvatski (`hr`)|[@OpossumGit]|Needs attention: 47.8% - committed 100% to dev|
 | Italiano (`it`)|Please volunteer|OK|
 | 日本語 (`ja`)|[@LuminaryXion]|Working on this|
 | 한국어 (`ko`)|Please volunteer|Needs attention: 80.6%|
@@ -250,5 +256,5 @@ Languages with less than 90% coverage will be removed in a future Nightscout ver
 | ------------------------------------- | -------------------- |
 | All active developers: | [@jasoncalabrese] [@jpcunningh] [@jweismann] [@komarserjio] [@mdomox] [@MilosKozak] [@PieterGit] [@rickfriele] [@sulkaharo]
 | All active testers/documentors: | [@danamlewis] [@jamieowendexcom] [@mcdafydd] [@oteroos] [@rarneson] [@tynbendad] [@unsoluble]
-| All active translators: | [@apanasef] [@jizhongwen] [@viderehh] [@herzogmedia] [@LuminaryXion]
+| All active translators: | [@apanasef] [@jizhongwen] [@viderehh] [@herzogmedia] [@LuminaryXion] [@OpossumGit]
 
